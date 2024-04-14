@@ -1,0 +1,11 @@
+C:\Projects_C#\nlw\PassIn\PassIn.Communication\bin\Debug\net8.0\PassIn.Communication.deps.json
+C:\Projects_C#\nlw\PassIn\PassIn.Communication\bin\Debug\net8.0\PassIn.Communication.dll
+C:\Projects_C#\nlw\PassIn\PassIn.Communication\bin\Debug\net8.0\PassIn.Communication.pdb
+C:\Projects_C#\nlw\PassIn\PassIn.Communication\obj\Debug\net8.0\PassIn.Communication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects_C#\nlw\PassIn\PassIn.Communication\obj\Debug\net8.0\PassIn.Communication.AssemblyInfoInputs.cache
+C:\Projects_C#\nlw\PassIn\PassIn.Communication\obj\Debug\net8.0\PassIn.Communication.AssemblyInfo.cs
+C:\Projects_C#\nlw\PassIn\PassIn.Communication\obj\Debug\net8.0\PassIn.Communication.csproj.CoreCompileInputs.cache
+C:\Projects_C#\nlw\PassIn\PassIn.Communication\obj\Debug\net8.0\PassIn.Communication.dll
+C:\Projects_C#\nlw\PassIn\PassIn.Communication\obj\Debug\net8.0\refint\PassIn.Communication.dll
+C:\Projects_C#\nlw\PassIn\PassIn.Communication\obj\Debug\net8.0\PassIn.Communication.pdb
+C:\Projects_C#\nlw\PassIn\PassIn.Communication\obj\Debug\net8.0\ref\PassIn.Communication.dll
