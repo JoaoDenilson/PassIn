@@ -1,0 +1,49 @@
+# Arquivos e diretórios de build
+bin/
+obj/
+
+# Diretório do NuGet
+packages/
+
+# Arquivos de configuração do Rider
+.idea/
+
+# Arquivos de configuração do Visual Studio
+.vs/
+*.user
+*.suo
+*.cache
+*.pdb
+
+# Arquivos de configuração
+*.config
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.temp
+
+# Arquivos de saída de análise estática de código
+*.CodeAnalysisLog.xml
+
+# Arquivos de documentação e recursos
+*.xml
+*.swp
+*.swn
+*.swo
+*.md
+
+# Arquivos de banco de dados (SQLite, SQL Server)
+*.sqlite
+*.sdf
+*.mdf
+*.ldf
+
+# Arquivos de compilação de testes
+TestResults/
+
+# Diretório do Visual Studio Code
+.vscode/
+
+# Diretório de publicação
+publish/
