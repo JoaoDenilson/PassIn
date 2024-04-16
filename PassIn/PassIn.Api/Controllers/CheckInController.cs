@@ -10,11 +10,11 @@ namespace PassIn.Api.Controllers
     public class CheckInController : ControllerBase
     {
         [HttpPost]
-        [Route("{AttendeeId}")]
+        //[Route("{AttendeeId}")]
         [ProducesResponseType(typeof(ResponseRegisteredJson), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status409Conflict)]
-        public IActionResult CheckIn([FromRoute] Guid attendeeId)
+        public IActionResult CheckIn([FromQuery] Guid attendeeId)
         {
             var useCase = new DoAttendeeCheckinUseCase();
 
