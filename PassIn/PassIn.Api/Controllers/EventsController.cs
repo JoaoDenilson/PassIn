@@ -27,7 +27,7 @@ public class EventsController : ControllerBase
     [ProducesResponseType(typeof(ResponseRegisteredJson), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
 
-    public IActionResult GetById([FromBody] Guid id)
+    public IActionResult GetById(Guid id)
     {
         var useCase = new GetEventByIdUseCase();
 

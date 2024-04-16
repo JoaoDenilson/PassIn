@@ -29,7 +29,7 @@ namespace PassIn.Api.Controllers
         [Route("{eventId}")]
         [ProducesResponseType(typeof(ResponseAllAttendeesjson), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
-        public IActionResult GetAll([FromBody] Guid eventId)
+        public IActionResult GetAll( Guid eventId)
         {
             var useCase = new GetAllAttendeesByEventIdUseCase();
 
