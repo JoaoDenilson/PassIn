@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WRZDUVAYw2SRw2uMNk0oLDJKyD74SaZ8xqt+kFvfRha7OQ+1RVplsWy9Z3EHUEo2KAnWgkJI/U9xpPKi2RylWA==",
+  "dgSpecHash": "rekpFm658HmqrgAl8KRKFWv6c7DFDRWCKQQVIvL+AZAHkeMjuaokCzGvCCV9YBTGWy3H66KG+hk7k+ZT59FCug==",
   "success": true,
-  "projectFilePath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj",
+  "projectFilePath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

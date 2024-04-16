@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj",
+      "projectUniqueName": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj",
       "projectName": "PassIn.Exceptions",
-      "projectPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj",
+      "projectPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj",
       "packagesPath": "C:\\Users\\denilson_santos\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Exceptions\\obj\\",
+      "outputPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Exceptions\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1193,11 +1193,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj",
       "projectName": "PassIn.Infrastructure",
-      "projectPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj",
+      "projectPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\denilson_santos\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Infrastructure\\obj\\",
+      "outputPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TnzkOmgOJnSqy1vgArx7Zc2/PO5d92xGB+rdUGVVgYnYP918BJAy65/XzCPYj8Rbq/ogiXn/HMoYuSbEvI8N/A==",
+  "dgSpecHash": "7ctyaSaDDTEKvyuIrQYefbMnE+wyA3yildsPyYVdWfJkQibEqoF003tkYtijkvapjyQxbPR7pRtydn1riN/miQ==",
   "success": true,
-  "projectFilePath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj",
+  "projectFilePath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

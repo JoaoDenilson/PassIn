@@ -60,7 +60,7 @@ namespace PassIn.Application.UseCases.Events.RegisterAttendee
                 .Attendees
                 .Any(att => att.Email.Equals(request.Email) && att.Event_Id == eventId);
 
-            if(attendeeAlreadyRegistered is false)
+            if(attendeeAlreadyRegistered)
             {
                 throw new ConflicException("You can not register towice on the same event.");
             }

@@ -16,7 +16,7 @@ namespace PassIn.Api.Controllers
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status409Conflict)]
-        public IActionResult Register([FromBody] RequestRegisterEventJson request, [FromBody] Guid eventId)
+        public IActionResult Register([FromBody] RequestRegisterEventJson request, Guid eventId)
         {
             var useCase = new RegisterAttendeeOnEventUseCase();
 

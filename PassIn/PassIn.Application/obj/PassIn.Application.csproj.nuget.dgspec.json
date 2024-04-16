@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Application\\PassIn.Application.csproj": {}
+    "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Application\\PassIn.Application.csproj": {}
   },
   "projects": {
-    "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Application\\PassIn.Application.csproj": {
+    "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Application\\PassIn.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Application\\PassIn.Application.csproj",
+        "projectUniqueName": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Application\\PassIn.Application.csproj",
         "projectName": "PassIn.Application",
-        "projectPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Application\\PassIn.Application.csproj",
+        "projectPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Application\\PassIn.Application.csproj",
         "packagesPath": "C:\\Users\\denilson_santos\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Application\\obj\\",
+        "outputPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,14 +33,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj": {
-                "projectPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj"
+              "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj": {
+                "projectPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj"
               },
-              "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj": {
-                "projectPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj"
+              "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj": {
+                "projectPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj"
               },
-              "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj": {
-                "projectPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj"
+              "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj": {
+                "projectPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj": {
+    "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj",
+        "projectUniqueName": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj",
         "projectName": "PassIn.Communication",
-        "projectPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj",
+        "projectPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj",
         "packagesPath": "C:\\Users\\denilson_santos\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Communication\\obj\\",
+        "outputPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Communication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -134,14 +134,14 @@
         }
       }
     },
-    "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj": {
+    "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj",
+        "projectUniqueName": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj",
         "projectName": "PassIn.Exceptions",
-        "projectPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj",
+        "projectPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj",
         "packagesPath": "C:\\Users\\denilson_santos\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Exceptions\\obj\\",
+        "outputPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Exceptions\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -194,14 +194,14 @@
         }
       }
     },
-    "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj": {
+    "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj",
         "projectName": "PassIn.Infrastructure",
-        "projectPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj",
+        "projectPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\denilson_santos\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects_C#\\nlw\\PassIn\\PassIn.Infrastructure\\obj\\",
+        "outputPath": "C:\\Projects_C#\\Scheduling-events\\PassIn\\PassIn.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
