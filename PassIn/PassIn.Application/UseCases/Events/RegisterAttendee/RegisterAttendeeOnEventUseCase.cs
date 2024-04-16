@@ -28,7 +28,7 @@ namespace PassIn.Application.UseCases.Events.RegisterAttendee
                 Email = request.Email,
                 Name = request.Name,
                 Event_Id = eventId,
-                Created_at = DateTime.UtcNow,
+                Created_At = DateTime.UtcNow,
             };
 
             _dbContext.Attendees.Add(entity);

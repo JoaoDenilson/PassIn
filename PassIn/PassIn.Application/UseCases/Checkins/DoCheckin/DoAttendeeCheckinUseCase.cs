@@ -24,7 +24,7 @@ namespace PassIn.Application.UseCases.Checkings.DoCheckin
             var entity = new CheckIn
             {
                 Attendee_Id = attendeeId,
-                Created_At = DateTime.UtcNow,
+                Created_at = DateTime.UtcNow,
             };
 
             _dbContext.CheckIns.Add(entity);

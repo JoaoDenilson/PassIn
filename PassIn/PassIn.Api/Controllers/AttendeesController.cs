@@ -27,7 +27,7 @@ namespace PassIn.Api.Controllers
 
         [HttpGet]
         [Route("{eventId}")]
-        [ProducesResponseType(typeof(ResponseAllAttendeesjson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseAllAttendeesJson), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
         public IActionResult GetAll( Guid eventId)
         {

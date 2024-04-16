@@ -13,14 +13,15 @@ namespace PassIn.Application.UseCases.Attendees.GetAllByEventId
         {
             _dbContext = new PassInDbContext();
         }
-        public ResponseAllAttendeesjson Execute(Guid eventId)
+        public ResponseAllAttendeesJson Execute(Guid eventId)
         {
 
-            var entity = _dbContext.Events.Include(ev => ev.Attendees).ThenInclude(att => att.CheckIn).FirstOrDefault(ev => ev.Id == eventId);
+            var entity = _dbContext.Events.Include(ev => ev.Attendees).ThenInclude(attendee => attendee.CheckIn).FirstOrDefault();
+            // var entity = _dbContext.Events.Include(ev => ev.Attendees).ThenInclude(att => att.CheckIn).FirstOrDefault(ev => ev.Id == eventId);
             if (entity is null)
                 throw new NotFoundException("An event with this id dont exist.");
 
-            return new ResponseAllAttendeesjson
+            return new ResponseAllAttendeesJson
             {
                 Attendees = entity.Attendees.Select(attendee => new ResponseAttendeeJson
                 {
@@ -28,8 +29,7 @@ namespace PassIn.Application.UseCases.Attendees.GetAllByEventId
                     Name = attendee.Name,
                     Email = attendee.Email,
                     CreatedAt = DateTime.UtcNow,
-                    CheckedInAt = attendee.CheckIn!.Created_At,
-                    //CheckedInAt = attendee.CheckIn?.Created_At,
+                    CheckedInAt = attendee.CheckIn?.Created_at,
                 }).ToList(),
             };
         }
