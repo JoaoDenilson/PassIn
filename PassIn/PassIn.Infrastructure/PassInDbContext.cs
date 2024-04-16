@@ -11,7 +11,7 @@ namespace PassIn.Infrastructure
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlite("Data Source=C:\\PassInDb.db");
-            optionsBuilder.UseSqlite("Data Source=C:\\PassInDb.db");
+            optionsBuilder.UseSqlite("Data Source=C:\\Users\\denilson_santos\\Desktop\\PassInDb.db");
         }
     }
 }
