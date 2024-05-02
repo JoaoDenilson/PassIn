@@ -1,7 +1,9 @@
-﻿using PassIn.Communication.Responses;
+﻿using PassIn.Application.UseCases.Checkins.DoCheckin;
+using PassIn.Communication.Responses;
 using PassIn.Exceptions;
 using PassIn.Infrastructure;
 using PassIn.Infrastructure.Entities;
+using PassIn.Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +12,19 @@ using System.Threading.Tasks;
 
 namespace PassIn.Application.UseCases.Checkings.DoCheckin
 {
-    public class DoAttendeeCheckinUseCase
+    public class DoAttendeeCheckinUseCase : IDoAttendeeCheckinUseCase
     {
-        private readonly PassInDbContext _dbContext;
-        public DoAttendeeCheckinUseCase()
+        private readonly IAttendeeRepository attendeeRepository;
+        private readonly ICheckInRepository checkInRepository;
+        private readonly IPassInDBContext passInDBContext;
+
+        public DoAttendeeCheckinUseCase(IAttendeeRepository attendeeRepository, ICheckInRepository checkInRepository, IPassInDBContext passInDBContext)
         {
-            _dbContext = new PassInDbContext();
+            this.attendeeRepository = attendeeRepository;
+            this.checkInRepository = checkInRepository;
+            this.passInDBContext = passInDBContext;
         }
+
         public ResponseRegisteredJson Execute(Guid attendeeId)
         {
             Validate(attendeeId);
@@ -27,8 +35,8 @@ namespace PassIn.Application.UseCases.Checkings.DoCheckin
                 Created_at = DateTime.UtcNow,
             };
 
-            _dbContext.CheckIns.Add(entity);
-            _dbContext.SaveChanges();
+            checkInRepository.registerCheckIn(entity);
+            passInDBContext.SaveChangesAsync(CancellationToken.None);
 
             return new ResponseRegisteredJson
             {
@@ -38,14 +46,14 @@ namespace PassIn.Application.UseCases.Checkings.DoCheckin
 
         private void Validate(Guid attendeeId)
         {
-            var existAttendee = _dbContext.Attendees.Any(at => at.Id == attendeeId);
+            var existAttendee = attendeeRepository.GetById(attendeeId);
 
-            if (existAttendee ==  false)
+            if (existAttendee ==  null)
             {
                 throw new NotFoundException("The attendee with this Id was not found");
             }
 
-            var existCheckIn = _dbContext.CheckIns.Any(ch => ch.Attendee_Id == attendeeId);
+            var existCheckIn = checkInRepository.hasCheckIn(attendeeId);
             if (existCheckIn)
             {
                 throw new ConflicException("Attendee can not do checking twic in the same event");

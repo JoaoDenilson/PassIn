@@ -2,16 +2,23 @@
 using PassIn.Communication.Responses;
 using PassIn.Exceptions;
 using PassIn.Infrastructure;
+using PassIn.Infrastructure.Repository;
 
 namespace PassIn.Application.UseCases.Events.GetById
 {
-    public class GetEventByIdUseCase
+    public class GetEventByIdUseCase : IGetEventByIdUseCase
     {
-        public ResponseEventJson Execute(Guid id) 
-        {
-            var dbContext = new PassInDbContext();
+        private readonly IEventRepository eventRepository;
 
-            var entity = dbContext.Events.Include(ev => ev.Attendees).FirstOrDefault(ev => ev.Id == id);
+        public GetEventByIdUseCase(IEventRepository eventRepository)
+        {
+            this.eventRepository = eventRepository;
+        }
+
+        public async Task<ResponseEventJson> Execute(Guid id) 
+        {
+
+            var entity = await this.eventRepository.GetEventById(id).ConfigureAwait(false);
             if (entity is null)
                 throw new NotFoundException("An event with this id dont exist.");
 

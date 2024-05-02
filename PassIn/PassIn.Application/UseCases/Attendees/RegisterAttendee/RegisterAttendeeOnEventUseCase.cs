@@ -2,6 +2,7 @@
 using PassIn.Communication.Responses;
 using PassIn.Exceptions;
 using PassIn.Infrastructure;
+using PassIn.Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,22 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PassIn.Application.UseCases.Events.RegisterAttendee
+namespace PassIn.Application.UseCases.Attendees.RegisterAttendee
 {
-    public class RegisterAttendeeOnEventUseCase
+    public class RegisterAttendeeOnEventUseCase : IRegisterAttendeeOnEventUseCase
     {
-        private readonly PassInDbContext _dbContext;
-        public RegisterAttendeeOnEventUseCase()
+        private readonly IAttendeeRepository attendeeRepository;
+        private readonly IEventRepository eventRepository;
+        private readonly IPassInDBContext passInDBContext;
+
+        public RegisterAttendeeOnEventUseCase(IAttendeeRepository attendeeRepository, IEventRepository eventRepository, IPassInDBContext passInDBContext)
         {
-            _dbContext = new PassInDbContext();
+            this.attendeeRepository = attendeeRepository;
+            this.eventRepository = eventRepository;
+            this.passInDBContext = passInDBContext;
         }
-        public ResponseRegisteredJson Execute( Guid eventId, RequestRegisterEventJson request)
+
+        public ResponseRegisteredJson Execute(Guid eventId, RequestRegisterEventJson request)
         {
 
             Validate(eventId, request);
@@ -31,19 +38,20 @@ namespace PassIn.Application.UseCases.Events.RegisterAttendee
                 Created_At = DateTime.UtcNow,
             };
 
-            _dbContext.Attendees.Add(entity);
-            _dbContext.SaveChanges();
+            var result = attendeeRepository.RegisterAttendee(entity);
+
+            passInDBContext.SaveChangesAsync(CancellationToken.None);
 
             return new ResponseRegisteredJson
             {
-                Id = entity.Id
+                Id = result.Id
             };
         }
 
         private void Validate(Guid eventId, RequestRegisterEventJson request)
         {
-            var eventEntity = _dbContext.Events.Find(eventId);
-            if(eventEntity is null)
+            var eventEntity = eventRepository.GetById(eventId);
+            if (eventEntity is null)
                 throw new NotFoundException("An event with this id dont exist.");
 
             if (string.IsNullOrWhiteSpace(request.Name))
@@ -56,17 +64,15 @@ namespace PassIn.Application.UseCases.Events.RegisterAttendee
                 throw new ErrorOnValidationException("The email is invalid.");
             }
 
-            var attendeeAlreadyRegistered = _dbContext
-                .Attendees
-                .Any(att => att.Email.Equals(request.Email) && att.Event_Id == eventId);
+            var attendeeAlreadyRegistered = attendeeRepository.AlreadyRegistered(request, eventId);
 
-            if(attendeeAlreadyRegistered)
+            if (attendeeAlreadyRegistered)
             {
                 throw new ConflicException("You can not register towice on the same event.");
             }
 
-            var atteedeesForEvent = _dbContext.Attendees.Count(att => att.Event_Id == eventId);
-            if (atteedeesForEvent >= eventEntity.Maximum_Attendees)
+            var atteedeesForEvent = attendeeRepository.atteedeesForEvent(eventId);
+            if (atteedeesForEvent >= eventEntity.Result?.Maximum_Attendees)
             {
                 throw new ErrorOnValidationException("There is no room for this event.");
             }
@@ -78,7 +84,8 @@ namespace PassIn.Application.UseCases.Events.RegisterAttendee
             {
                 new MailAddress(email);
                 return true;
-            }catch
+            }
+            catch
             {
                 return false;
             }

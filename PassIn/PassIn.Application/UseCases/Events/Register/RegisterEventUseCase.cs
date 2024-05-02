@@ -2,15 +2,21 @@
 using PassIn.Communication.Responses;
 using PassIn.Exceptions;
 using PassIn.Infrastructure;
+using PassIn.Infrastructure.Repository;
 
 namespace PassIn.Application.UseCases.Events.Register;
-public class RegisterEventUseCase
+public class RegisterEventUseCase : IRegisterEventUseCase
 {
+    private readonly IEventRepository eventRepository;
+    private readonly IPassInDBContext passInDBContext;
+    public RegisterEventUseCase(IEventRepository eventRepository, IPassInDBContext passInDBContext)
+    {
+        this.eventRepository = eventRepository;
+        this.passInDBContext = passInDBContext;
+    }
     public ResponseRegisteredJson Execute(RequestEventJson request)
     {
         Validate(request);
-
-        var dbContext = new PassInDbContext();
 
         var entity = new Infrastructure.Entities.Event
         {
@@ -20,12 +26,13 @@ public class RegisterEventUseCase
             Slug = request.Title.ToLower().Replace(" ", "-"),
         };
 
-        dbContext.Events.Add(entity);
-        dbContext.SaveChanges();
+        var result = eventRepository.CreateEvent(entity);
+
+        passInDBContext.SaveChangesAsync(CancellationToken.None);
 
         return new ResponseRegisteredJson
         {
-            Id = entity.Id
+            Id = result.Id
         };
     }
 

@@ -3,20 +3,23 @@ using PassIn.Communication.Responses;
 using PassIn.Exceptions;
 using PassIn.Infrastructure;
 using PassIn.Infrastructure.Entities;
+using PassIn.Infrastructure.Repository;
 
 namespace PassIn.Application.UseCases.Attendees.GetAllByEventId
 {
-    public class GetAllAttendeesByEventIdUseCase
+    public class GetAllAttendeesByEventIdUseCase : IGetAllAttendeesByEventIdUseCase
     {
-        private readonly PassInDbContext _dbContext;
-        public GetAllAttendeesByEventIdUseCase()
+        private readonly IEventRepository eventRepository;
+
+        public GetAllAttendeesByEventIdUseCase(IEventRepository eventRepository)
         {
-            _dbContext = new PassInDbContext();
+            this.eventRepository = eventRepository;
         }
+
         public ResponseAllAttendeesJson Execute(Guid eventId)
         {
 
-            var entity = _dbContext.Events.Include(ev => ev.Attendees).ThenInclude(attendee => attendee.CheckIn).FirstOrDefault();
+            var entity = eventRepository.GetAllById(eventId);
             // var entity = _dbContext.Events.Include(ev => ev.Attendees).ThenInclude(att => att.CheckIn).FirstOrDefault(ev => ev.Id == eventId);
             if (entity is null)
                 throw new NotFoundException("An event with this id dont exist.");
