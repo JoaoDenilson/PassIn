@@ -7,31 +7,35 @@ using PassIn.Communication.Responses;
 namespace PassIn.Api.Controllers;
 
 [Route("api/[controller]")]
-//[ApiController]
+[ApiController]
 public class EventsController : ControllerBase
 {
+    private readonly IRegisterEventUseCase registerEventUseCase;
+    private readonly IGetEventByIdUseCase eventByIdUseCase;
+    public EventsController(IRegisterEventUseCase registerEventUseCase, IGetEventByIdUseCase eventByIdUseCase)
+    {
+        this.registerEventUseCase = registerEventUseCase;
+        this.eventByIdUseCase = eventByIdUseCase;
+    }
+
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisteredJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
     public IActionResult Register([FromBody] RequestEventJson request)
     {
-        var useCase = new RegisterEventUseCase();
-
-        var response = useCase.Execute(request);
+        
+        var response = registerEventUseCase.Execute(request);
 
         return Created(string.Empty, response);
     }
 
-    [HttpGet]
-    [Route("{id}")]
+    [HttpGet("{id}")]
     [ProducesResponseType(typeof(ResponseRegisteredJson), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
 
-    public IActionResult GetById(Guid id)
+    public async Task<IActionResult> GetById(Guid id)
     {
-        var useCase = new GetEventByIdUseCase();
-
-        var response = useCase.Execute(id);
+        var response = await this.eventByIdUseCase.Execute(id).ConfigureAwait(false);
 
         return Ok(response);
     }
