@@ -7,11 +7,11 @@ using PassIn.Infrastructure.Repository;
 
 namespace PassIn.Application.UseCases.Attendees.GetAllByEventId
 {
-    public class GetAllAttendeesByEventIdUseCase : IGetAllAttendeesByEventIdUseCase
+    public class GetAllAttendeesByConcertIdUseCase : IGetAllAttendeesByConcertIdUseCase
     {
-        private readonly IEventRepository eventRepository;
+        private readonly IConcertRepository eventRepository;
 
-        public GetAllAttendeesByEventIdUseCase(IEventRepository eventRepository)
+        public GetAllAttendeesByConcertIdUseCase(IConcertRepository eventRepository)
         {
             this.eventRepository = eventRepository;
         }

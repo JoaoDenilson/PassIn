@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace PassIn.Infrastructure.Repository
 {
-    public interface IEventRepository
+    public interface IConcertRepository
     {
-        Task<Event?> GetEventById(Guid id);
-        Event? GetAllById(Guid id);
-        Task<Event?> GetById(Guid id);
+        Task<Concert?> GetConcertById(Guid id);
+        Concert? GetAllById(Guid id);
+        Task<Concert?> GetById(Guid id);
 
-        Event CreateEvent(Event ev);
+        Concert CreateConcert(Concert ev);
     }
 }

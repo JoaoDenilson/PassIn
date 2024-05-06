@@ -6,23 +6,23 @@ using PassIn.Infrastructure.Repository;
 
 namespace PassIn.Application.UseCases.Events.GetById
 {
-    public class GetEventByIdUseCase : IGetEventByIdUseCase
+    public class GetConcertByIdUseCase : IGetConcertByIdUseCase
     {
-        private readonly IEventRepository eventRepository;
+        private readonly IConcertRepository eventRepository;
 
-        public GetEventByIdUseCase(IEventRepository eventRepository)
+        public GetConcertByIdUseCase(IConcertRepository eventRepository)
         {
             this.eventRepository = eventRepository;
         }
 
-        public async Task<ResponseEventJson> Execute(Guid id) 
+        public async Task<ResponseConcertJson> Execute(Guid id) 
         {
 
-            var entity = await this.eventRepository.GetEventById(id).ConfigureAwait(false);
+            var entity = await this.eventRepository.GetConcertById(id).ConfigureAwait(false);
             if (entity is null)
                 throw new NotFoundException("An event with this id dont exist.");
 
-            return new ResponseEventJson
+            return new ResponseConcertJson
             {
                 Id = entity.Id,
                 Title = entity.Title,

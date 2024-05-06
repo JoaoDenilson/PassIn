@@ -32,7 +32,7 @@ namespace PassIn.Infrastructure.Repository
 
             return at;
         }
-        public Boolean AlreadyRegistered(RequestRegisterEventJson request, Guid eventId)
+        public Boolean AlreadyRegistered(RequestRegisterConcertJson request, Guid eventId)
         {
             var result = this.attendees.Any(att => att.Email.Equals(request.Email) && att.Event_Id == eventId);
             return result;

@@ -2,8 +2,8 @@
 
 namespace PassIn.Application.UseCases.Events.GetById
 {
-    public interface IGetEventByIdUseCase
+    public interface IGetConcertByIdUseCase
     {
-        Task<ResponseEventJson> Execute(Guid id);
+        Task<ResponseConcertJson> Execute(Guid id);
     }
 }

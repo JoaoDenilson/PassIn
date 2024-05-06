@@ -11,7 +11,7 @@ namespace PassIn.Infrastructure.Repository
     public interface IAttendeeRepository
     {
         Attendee RegisterAttendee(Attendee at);
-        Boolean AlreadyRegistered(RequestRegisterEventJson request, Guid eventId);
+        Boolean AlreadyRegistered(RequestRegisterConcertJson request, Guid eventId);
         int atteedeesForEvent(Guid eventId);
         Task<Attendee?> GetById(Guid id);
     }

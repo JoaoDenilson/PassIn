@@ -8,11 +8,11 @@ namespace PassIn.Infrastructure
     {
         public PassInDbContext(DbContextOptions<PassInDbContext> options) : base(options)
         {
-            this.Events = this.Set<Event>();
+            this.Concerts = this.Set<Concert>();
             this.Attendees = this.Set<Attendee>();
             this.CheckIns = this.Set<CheckIn>();
         }
-        public DbSet<Event> Events { get; set; }
+        public DbSet<Concert> Concerts { get; set; }
         public DbSet<Attendee> Attendees { get; set; }
         public DbSet<CheckIn> CheckIns { get; set; }
 
@@ -22,7 +22,7 @@ namespace PassIn.Infrastructure
             {
                 _ = modelBuilder.ApplyConfiguration(new AttendeesConfiguration());
                 _ = modelBuilder.ApplyConfiguration(new CheckInsConfiguration());
-                _ = modelBuilder.ApplyConfiguration(new EventsConfiguration());
+                _ = modelBuilder.ApplyConfiguration(new ConcertsConfiguration());
 
                 base.OnModelCreating(modelBuilder);
             }

@@ -13,13 +13,13 @@ namespace PassIn.Api.Extensions
     {
         public static IServiceCollection AddServicesAndRegistration(this IServiceCollection services)
         {
-            _= services.AddTransient<IEventRepository, EventRepository>();
-            _ = services.AddTransient<IRegisterAttendeeOnEventUseCase, RegisterAttendeeOnEventUseCase>();
-            _ = services.AddTransient<IGetEventByIdUseCase, GetEventByIdUseCase>();
-            _ = services.AddTransient<IRegisterEventUseCase, RegisterEventUseCase>();
+            _= services.AddTransient<IConcertRepository, ConcertRepository>();
+            _ = services.AddTransient<IRegisterAttendeeOnConcertUseCase, RegisterAttendeeOnConcertUseCase>();
+            _ = services.AddTransient<IGetConcertByIdUseCase, GetConcertByIdUseCase>();
+            _ = services.AddTransient<IRegisterConcertUseCase, RegisterConcertUseCase>();
 
             _ = services.AddTransient<IAttendeeRepository, AttendeeRepository>();
-            _ = services.AddTransient<IGetAllAttendeesByEventIdUseCase, GetAllAttendeesByEventIdUseCase>();
+            _ = services.AddTransient<IGetAllAttendeesByConcertIdUseCase, GetAllAttendeesByConcertIdUseCase>();
 
             _ = services.AddTransient<ICheckInRepository, CheckInRepository>();
             _ = services.AddTransient<IDoAttendeeCheckinUseCase, DoAttendeeCheckinUseCase>();

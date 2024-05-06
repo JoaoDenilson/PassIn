@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PassIn.Application.UseCases.Attendees.RegisterAttendee
+namespace PassIn.Application.UseCases.Events.Register
 {
-    public interface IRegisterAttendeeOnEventUseCase
+    public interface IRegisterConcertUseCase
     {
-        ResponseRegisteredJson Execute(Guid eventId, RequestRegisterEventJson request);
+        ResponseRegisteredJson Execute(RequestConcertJson request);
     }
 }

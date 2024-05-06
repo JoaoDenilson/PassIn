@@ -5,20 +5,20 @@ using PassIn.Infrastructure;
 using PassIn.Infrastructure.Repository;
 
 namespace PassIn.Application.UseCases.Events.Register;
-public class RegisterEventUseCase : IRegisterEventUseCase
+public class RegisterConcertUseCase : IRegisterConcertUseCase
 {
-    private readonly IEventRepository eventRepository;
+    private readonly IConcertRepository eventRepository;
     private readonly IPassInDBContext passInDBContext;
-    public RegisterEventUseCase(IEventRepository eventRepository, IPassInDBContext passInDBContext)
+    public RegisterConcertUseCase(IConcertRepository eventRepository, IPassInDBContext passInDBContext)
     {
         this.eventRepository = eventRepository;
         this.passInDBContext = passInDBContext;
     }
-    public ResponseRegisteredJson Execute(RequestEventJson request)
+    public ResponseRegisteredJson Execute(RequestConcertJson request)
     {
         Validate(request);
 
-        var entity = new Infrastructure.Entities.Event
+        var entity = new Infrastructure.Entities.Concert
         {
             Title = request.Title,
             Details = request.Details,
@@ -26,7 +26,7 @@ public class RegisterEventUseCase : IRegisterEventUseCase
             Slug = request.Title.ToLower().Replace(" ", "-"),
         };
 
-        var result = eventRepository.CreateEvent(entity);
+        var result = eventRepository.CreateConcert(entity);
 
         passInDBContext.SaveChangesAsync(CancellationToken.None);
 
@@ -36,7 +36,7 @@ public class RegisterEventUseCase : IRegisterEventUseCase
         };
     }
 
-    public void Validate(RequestEventJson request)
+    public void Validate(RequestConcertJson request)
     {
         if (request.MaximumAttendees <= 0)
         {

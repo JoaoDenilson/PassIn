@@ -5,23 +5,23 @@ using PassIn.Infrastructure.Repository;
 namespace UnitTest.Service
 {
     [TestClass]
-    public class GetEventByIdTest
+    public class GetConcertByIdTest
     {
-        private IGetEventByIdUseCase getEventByIdUseCase;
-        private IEventRepository eventRepository;
+        private IGetConcertByIdUseCase getConcertByIdUseCase;
+        private IConcertRepository concertRepository;
 
         [TestInitialize]
         public void Setup()
         {
-            this.getEventByIdUseCase = Substitute.For<IGetEventByIdUseCase>();
-            this.eventRepository = Substitute.For<IEventRepository>();;
+            this.getConcertByIdUseCase = Substitute.For<IGetConcertByIdUseCase>();
+            this.concertRepository = Substitute.For<IConcertRepository>();;
     }
         [TestMethod]
         public void GetEventById()
         {
             // Arrange
             Guid guid = Guid.NewGuid();
-            var entityEvent = new Event
+            var entityEvent = new Concert
             {
                 Id = guid,
                 Details = "Test",
@@ -40,10 +40,10 @@ namespace UnitTest.Service
                 },
             };
 
-            _= eventRepository.GetEventById(guid).Returns(entityEvent);
+            _= concertRepository.GetConcertById(guid).Returns(entityEvent);
 
             // Act
-            var result = getEventByIdUseCase.Execute(guid);
+            var result = getConcertByIdUseCase.Execute(guid);
 
             // Assert
             var resultTest = result.Result;

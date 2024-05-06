@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace PassIn.Infrastructure.Configuration
 {
-    public class EventsConfiguration : IEntityTypeConfiguration<Event>
+    public class ConcertsConfiguration : IEntityTypeConfiguration<Concert>
     {
-        public void Configure(EntityTypeBuilder<Event> builder)
+        public void Configure(EntityTypeBuilder<Concert> builder)
         {
-            builder.ToTable("Events").HasKey(p => p.Id);
+            builder.ToTable("Concerts").HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
             builder.Property(p => p.Title).HasColumnName("Title");
             builder.Property(p => p.Details).HasColumnName("Details");

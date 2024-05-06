@@ -10,10 +10,10 @@ namespace PassIn.Api.Controllers
     [ApiController]
     public class AttendeesController : ControllerBase
     {
-        private readonly IRegisterAttendeeOnEventUseCase registerAttendeeOnEventUseCase;
-        private readonly IGetAllAttendeesByEventIdUseCase getAllAttendeesByEventIdUseCase;
+        private readonly IRegisterAttendeeOnConcertUseCase registerAttendeeOnEventUseCase;
+        private readonly IGetAllAttendeesByConcertIdUseCase getAllAttendeesByEventIdUseCase;
 
-        public AttendeesController(IRegisterAttendeeOnEventUseCase registerAttendeeOnEventUseCase, IGetAllAttendeesByEventIdUseCase getAllAttendeesByEventIdUseCase)
+        public AttendeesController(IRegisterAttendeeOnConcertUseCase registerAttendeeOnEventUseCase, IGetAllAttendeesByConcertIdUseCase getAllAttendeesByEventIdUseCase)
         {
             this.registerAttendeeOnEventUseCase = registerAttendeeOnEventUseCase;
             this.getAllAttendeesByEventIdUseCase = getAllAttendeesByEventIdUseCase;
@@ -24,7 +24,7 @@ namespace PassIn.Api.Controllers
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status409Conflict)]
-        public IActionResult Register([FromBody] RequestRegisterEventJson request, Guid eventId)
+        public IActionResult Register([FromBody] RequestRegisterConcertJson request, Guid eventId)
         {
             var response = registerAttendeeOnEventUseCase.Execute(eventId, request);
 

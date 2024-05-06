@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PassIn.Application.UseCases.Attendees.GetAllByEventId
 {
-    public interface IGetAllAttendeesByEventIdUseCase
+    public interface IGetAllAttendeesByConcertIdUseCase
     {
         ResponseAllAttendeesJson Execute(Guid eventId);
     }

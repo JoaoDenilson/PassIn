@@ -5,7 +5,7 @@ namespace PassIn.Infrastructure
 {
     public interface IPassInDBContext
     {
-        DbSet<Event> Events { get; set; }
+        DbSet<Concert> Concerts { get; set; }
         DbSet<Attendee> Attendees { get; set; }
         DbSet<CheckIn> CheckIns { get; set; }
 

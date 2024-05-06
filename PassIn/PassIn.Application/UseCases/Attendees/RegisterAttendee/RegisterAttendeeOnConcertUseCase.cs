@@ -12,20 +12,20 @@ using System.Threading.Tasks;
 
 namespace PassIn.Application.UseCases.Attendees.RegisterAttendee
 {
-    public class RegisterAttendeeOnEventUseCase : IRegisterAttendeeOnEventUseCase
+    public class RegisterAttendeeOnConcertUseCase : IRegisterAttendeeOnConcertUseCase
     {
         private readonly IAttendeeRepository attendeeRepository;
-        private readonly IEventRepository eventRepository;
+        private readonly IConcertRepository eventRepository;
         private readonly IPassInDBContext passInDBContext;
 
-        public RegisterAttendeeOnEventUseCase(IAttendeeRepository attendeeRepository, IEventRepository eventRepository, IPassInDBContext passInDBContext)
+        public RegisterAttendeeOnConcertUseCase(IAttendeeRepository attendeeRepository, IConcertRepository eventRepository, IPassInDBContext passInDBContext)
         {
             this.attendeeRepository = attendeeRepository;
             this.eventRepository = eventRepository;
             this.passInDBContext = passInDBContext;
         }
 
-        public ResponseRegisteredJson Execute(Guid eventId, RequestRegisterEventJson request)
+        public ResponseRegisteredJson Execute(Guid eventId, RequestRegisterConcertJson request)
         {
 
             Validate(eventId, request);
@@ -48,7 +48,7 @@ namespace PassIn.Application.UseCases.Attendees.RegisterAttendee
             };
         }
 
-        private void Validate(Guid eventId, RequestRegisterEventJson request)
+        private void Validate(Guid eventId, RequestRegisterConcertJson request)
         {
             var eventEntity = eventRepository.GetById(eventId);
             if (eventEntity is null)

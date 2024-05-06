@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PassIn.Infrastructure.Entities
 {
-    public class Event
+    public class Concert
     {
         [Key]
         public Guid Id { get; set; }
