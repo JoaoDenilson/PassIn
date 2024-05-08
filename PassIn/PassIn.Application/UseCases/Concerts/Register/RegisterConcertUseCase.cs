@@ -7,11 +7,11 @@ using PassIn.Infrastructure.Repository;
 namespace PassIn.Application.UseCases.Events.Register;
 public class RegisterConcertUseCase : IRegisterConcertUseCase
 {
-    private readonly IConcertRepository eventRepository;
+    private readonly IConcertRepository concertRepository;
     private readonly IPassInDBContext passInDBContext;
     public RegisterConcertUseCase(IConcertRepository eventRepository, IPassInDBContext passInDBContext)
     {
-        this.eventRepository = eventRepository;
+        this.concertRepository = eventRepository;
         this.passInDBContext = passInDBContext;
     }
     public ResponseRegisteredJson Execute(RequestConcertJson request)
@@ -26,14 +26,16 @@ public class RegisterConcertUseCase : IRegisterConcertUseCase
             Slug = request.Title.ToLower().Replace(" ", "-"),
         };
 
-        var result = eventRepository.CreateConcert(entity);
+        var result = concertRepository.CreateConcert(entity);
 
         passInDBContext.SaveChangesAsync(CancellationToken.None);
 
-        return new ResponseRegisteredJson
+        var response = new ResponseRegisteredJson
         {
             Id = result.Id
         };
+
+        return response;
     }
 
     public void Validate(RequestConcertJson request)
